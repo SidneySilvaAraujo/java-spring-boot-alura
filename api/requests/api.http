@@ -1,0 +1,4 @@
+@baseUrl = http://localhost:8080
+
+### Teste do endpoint /hello
+GET {{baseUrl}}/hello
