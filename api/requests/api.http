@@ -3,6 +3,20 @@
 ### Teste do endpoint /hello
 GET {{baseUrl}}/hello
 
+### 1. Listar médicos (Básico)
+GET {{baseUrl}}/medicos
+
+### 2. Listar médicos com paginação
+# page = número da página (0 é a primeira)
+# size = quantidade de registros por página
+GET {{baseUrl}}/medicos?page=0&size=3
+
+### 3. Listar médicos ordenados por nome
+GET {{baseUrl}}/medicos?sort=nome
+
+### 4. Combinar paginação + ordenação
+GET {{baseUrl}}/medicos?page=0&size=3&sort=nome
+
 ### Teste do endpoint para cadastrar um medico
 POST {{baseUrl}}/medicos
 Content-Type: application/json
