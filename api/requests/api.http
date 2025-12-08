@@ -36,3 +36,27 @@ Content-Type: application/json
     "complemento": "complemento"
     }
 }
+
+### Teste do endpoint para atualizar um medico
+PUT {{baseUrl}}/medicos
+
+Content-Type: application/json
+{
+"nome": "Rodrigo Ferreira",
+"email": "rodrigo.ferreira@voll.med",
+"crm": "123456",
+"especialidade": "ORTOPEDIA",
+"endereco": {
+    "logradouro": "rua 1",
+    "bairro": "bairro",
+    "cep": "12345678",
+    "cidade": "Brasilia",
+    "telefone": "6232865784",
+    "uf": "DF",
+    "numero": "1",
+    "complemento": "complemento"
+    }
+}
+
+### Teste do endpoint para deletar um médico
+DELETE  {{baseUrl}}/medicos/1
