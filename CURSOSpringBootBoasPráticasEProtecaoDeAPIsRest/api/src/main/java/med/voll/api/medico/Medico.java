@@ -51,7 +51,7 @@ this.endereco = new Endereco(dados.endereco());
         }
     }
 
-    public void Excluir() {
+    public void excluir() {
         this.ativo = false;
     }
 }

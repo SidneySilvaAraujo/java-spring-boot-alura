@@ -20,18 +20,19 @@ POST {{baseUrl}}/medicos
 Content-Type: application/json
 
 {
-  "nome": "Rodrigo Ferreira",
-  "email": "rodrigo.ferreira@voll.med",
-  "crm": "123456",
-  "especialidade": "ORTOPEDIA",
+  "nome": "Joana Martins Ribeiro",
+  "email": "joana.ribeiro@voll.med",
+  "crm": "334455",
+  "telefone": "48999887766",
+  "especialidade": "GINECOLOGIA",
   "endereco": {
-    "logradouro": "rua 1",
-    "bairro": "bairro",
-    "cep": "12345678",
-    "cidade": "Brasilia",
-    "uf": "DF",
-    "numero": "1",
-    "complemento": "complemento"
+    "logradouro": "Rua das Laranjeiras",
+    "bairro": "Centro",
+    "cep": "88020000",
+    "cidade": "Florianópolis",
+    "uf": "SC",
+    "numero": "220",
+    "complemento": "Apto 304"
   }
 }
 
@@ -42,7 +43,7 @@ Content-Type: application/json
 {
   "id": 1,
   "nome": "Rodrigo Ferreira",
-  "telefone": "6232865784",
+  "telefone": "6598455656",
   "endereco": {
     "logradouro": "rua 1",
     "bairro": "bairro",
@@ -55,4 +56,4 @@ Content-Type: application/json
 }
 
 ### Teste do endpoint para deletar um médico
-DELETE {{baseUrl}}/medicos/1
+DELETE {{baseUrl}}/medicos/31
