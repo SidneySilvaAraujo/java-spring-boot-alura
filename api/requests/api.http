@@ -7,8 +7,6 @@ GET {{baseUrl}}/hello
 GET {{baseUrl}}/medicos
 
 ### 2. Listar médicos com paginação
-# page = número da página (0 é a primeira)
-# size = quantidade de registros por página
 GET {{baseUrl}}/medicos?page=0&size=3
 
 ### 3. Listar médicos ordenados por nome
@@ -22,11 +20,11 @@ POST {{baseUrl}}/medicos
 Content-Type: application/json
 
 {
-"nome": "Rodrigo Ferreira",
-"email": "rodrigo.ferreira@voll.med",
-"crm": "123456",
-"especialidade": "ORTOPEDIA",
-"endereco": {
+  "nome": "Rodrigo Ferreira",
+  "email": "rodrigo.ferreira@voll.med",
+  "crm": "123456",
+  "especialidade": "ORTOPEDIA",
+  "endereco": {
     "logradouro": "rua 1",
     "bairro": "bairro",
     "cep": "12345678",
@@ -34,29 +32,27 @@ Content-Type: application/json
     "uf": "DF",
     "numero": "1",
     "complemento": "complemento"
-    }
+  }
 }
 
 ### Teste do endpoint para atualizar um medico
 PUT {{baseUrl}}/medicos
-
 Content-Type: application/json
+
 {
-"nome": "Rodrigo Ferreira",
-"email": "rodrigo.ferreira@voll.med",
-"crm": "123456",
-"especialidade": "ORTOPEDIA",
-"endereco": {
+  "id": 1,
+  "nome": "Rodrigo Ferreira",
+  "telefone": "6232865784",
+  "endereco": {
     "logradouro": "rua 1",
     "bairro": "bairro",
     "cep": "12345678",
     "cidade": "Brasilia",
-    "telefone": "6232865784",
     "uf": "DF",
     "numero": "1",
     "complemento": "complemento"
-    }
+  }
 }
 
 ### Teste do endpoint para deletar um médico
-DELETE  {{baseUrl}}/medicos/1
+DELETE {{baseUrl}}/medicos/1
