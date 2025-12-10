@@ -20,19 +20,19 @@ POST {{baseUrl}}/medicos
 Content-Type: application/json
 
 {
-  "nome": "Joana Martins Ribeiro",
-  "email": "joana.ribeiro@voll.med",
-  "crm": "334455",
-  "telefone": "48999887766",
-  "especialidade": "GINECOLOGIA",
+  "nome": "Bruno Nogueira Lopes",
+  "email": "bruno.lopes@voll.med",
+  "crm": "991122",
+  "telefone": "71999881234",
+  "especialidade": "ORTOPEDIA",
   "endereco": {
-    "logradouro": "Rua das Laranjeiras",
-    "bairro": "Centro",
-    "cep": "88020000",
-    "cidade": "Florianópolis",
-    "uf": "SC",
-    "numero": "220",
-    "complemento": "Apto 304"
+    "logradouro": "Av. Sete de Setembro",
+    "bairro": "Campo Grande",
+    "cep": "40080000",
+    "cidade": "Salvador",
+    "uf": "BA",
+    "numero": "45",
+    "complemento": "Consultório 2"
   }
 }
 
@@ -57,3 +57,67 @@ Content-Type: application/json
 
 ### Teste do endpoint para deletar um médico
 DELETE {{baseUrl}}/medicos/31
+
+
+### Teste do endpoint para detalhar um médico
+GET {{baseUrl}}/medicos/32
+
+
+### Teste do endpoint para cadastrar pacientes
+POST {{baseUrl}}/pacientes
+Content-Type: application/json
+
+{
+  "nome": "Rodrigo Nascimento Pires",
+  "email": "rodrigo.pires@example.com",
+  "cpf": "513.804.720-17",
+  "telefone": "(67) 98122-0091",
+  "endereco": {
+    "logradouro": "Avenida Brasil",
+    "bairro": "Dom Bosco",
+    "cep": "79104320",
+    "cidade": "Campo Grande",
+    "uf": "MS",
+    "numero": "1540",
+    "complemento": null
+  }
+}
+
+### 1. Listar pacientes (Básico)
+GET {{baseUrl}}/pacientes
+
+### 2. Listar pacientes com paginação
+GET {{baseUrl}}/pacientes?page=0&size=3
+
+### 3. Listar pacientes ordenados por nome
+GET {{baseUrl}}/pacientes?sort=nome
+
+### 4. Combinar paginação + ordenação
+GET {{baseUrl}}/pacientes?page=0&size=3&sort=nome
+
+### Teste do endpoint para atualizar um paciente
+PUT {{baseUrl}}/pacientes
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nome": "Mariana Duarte Leal",
+  "email": "mariana.leal@example.com",
+  "cpf": "247.915.680-42",
+  "telefone": "(48) 99812-4402",
+  "endereco": {
+    "logradouro": "Rua das Acácias",
+    "bairro": "Centro",
+    "cep": "88010001",
+    "cidade": "Florianópolis",
+    "uf": "SC",
+    "numero": "112",
+    "complemento": "Apto 303"
+  }
+}
+
+### Teste do endpoint para deletar um paciente
+DELETE {{baseUrl}}/pacientes/1
+
+### Teste do endpoint para detalhar um paciente
+GET {{baseUrl}}/pacientes/2
