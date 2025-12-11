@@ -60,17 +60,14 @@ DELETE {{baseUrl}}/medicos/31
 
 
 ### Teste do endpoint para detalhar um médico
-GET {{baseUrl}}/medicos/32
-
+GET {{baseUrl}}/medicos/324
 
 ### Teste do endpoint para cadastrar pacientes
 POST {{baseUrl}}/pacientes
 Content-Type: application/json
 
 {
-  "nome": "Rodrigo Nascimento Pires",
   "email": "rodrigo.pires@example.com",
-  "cpf": "513.804.720-17",
   "telefone": "(67) 98122-0091",
   "endereco": {
     "logradouro": "Avenida Brasil",
@@ -120,4 +117,4 @@ Content-Type: application/json
 DELETE {{baseUrl}}/pacientes/1
 
 ### Teste do endpoint para detalhar um paciente
-GET {{baseUrl}}/pacientes/2
+GET {{baseUrl}}/pacientes/2315
