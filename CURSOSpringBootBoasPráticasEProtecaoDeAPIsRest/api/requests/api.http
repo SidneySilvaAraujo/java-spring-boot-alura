@@ -67,8 +67,10 @@ POST {{baseUrl}}/pacientes
 Content-Type: application/json
 
 {
-  "email": "rodrigo.pires@example.com",
-  "telefone": "(67) 98122-0091",
+  "nome": "Andrei Martins",
+  "email": "andrei.martins@example.com",
+  "cpf": "357.824.381-17",
+  "telefone": "(67) 97432-1423",
   "endereco": {
     "logradouro": "Avenida Brasil",
     "bairro": "Dom Bosco",
@@ -117,4 +119,4 @@ Content-Type: application/json
 DELETE {{baseUrl}}/pacientes/1
 
 ### Teste do endpoint para detalhar um paciente
-GET {{baseUrl}}/pacientes/2315
+GET {{baseUrl}}/pacientes/3
