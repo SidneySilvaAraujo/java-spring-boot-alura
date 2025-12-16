@@ -29,16 +29,16 @@ public class MedicoController {
     @GetMapping
     public ResponseEntity<Page<DadosListagemMedico>> listar(Pageable paginacao) {
         var page = repository.findAll(paginacao).map(DadosListagemMedico::new);
-return ResponseEntity.ok(page);
+        return ResponseEntity.ok(page);
     }
 
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados) {
-var medico = repository.getReferenceById(dados.id());
-medico.atualizarInformacoes(dados);
+        var medico = repository.getReferenceById(dados.id());
+        medico.atualizarInformacoes(dados);
 
-return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
+        return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
 
     @DeleteMapping("/{id}")
@@ -52,8 +52,8 @@ return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
 
     @GetMapping("/{id}")
     public ResponseEntity detalhar(@PathVariable Long id) {
-var medico = repository.getReferenceById(id);
-return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
+        var medico = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
 }
 

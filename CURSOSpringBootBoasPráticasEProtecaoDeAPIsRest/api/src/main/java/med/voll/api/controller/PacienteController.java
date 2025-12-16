@@ -23,23 +23,23 @@ public class PacienteController {
         repository.save(paciente);
 
         var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
-return  ResponseEntity.created(uri).body(new DadosDetalhamentoPaciente(paciente));
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoPaciente(paciente));
     }
 
     @GetMapping
     public ResponseEntity<Page<DadosListagemPaciente>> listar(Pageable paginacao) {
-var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new);
+        var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new);
 
-return ResponseEntity.ok(page);
+        return ResponseEntity.ok(page);
     }
 
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoPaciente dados) {
-var paciente = repository.getReferenceById(dados.id());
-paciente.atualizarInformacoes(dados);
+        var paciente = repository.getReferenceById(dados.id());
+        paciente.atualizarInformacoes(dados);
 
-return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
+        return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 
     @DeleteMapping("/{id}")
