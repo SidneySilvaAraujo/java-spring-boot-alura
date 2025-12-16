@@ -64,7 +64,8 @@ GET {{baseUrl}}/medicos/324
 
 ### Teste do endpoint para cadastrar pacientes
 POST {{baseUrl}}/pacientes
-Content-Type: application/json
+Content-Type: application/
+json
 
 {
   "nome": "Andrei Martins",
