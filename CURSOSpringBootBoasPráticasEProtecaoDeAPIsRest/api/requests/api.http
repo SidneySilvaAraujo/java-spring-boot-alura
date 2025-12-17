@@ -1,11 +1,20 @@
 @baseUrl = http://localhost:8080
 
+### efetuar login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "login": "lucas.ferreira@voll.med",
+  "senha": "123456"
+}
+
 ### Teste do endpoint /hello
 GET {{baseUrl}}/hello
 
 ### 1. Listar médicos (Básico)
 GET {{baseUrl}}/medicos
-
+  
 ### 2. Listar médicos com paginação
 GET {{baseUrl}}/medicos?page=0&size=3
 
