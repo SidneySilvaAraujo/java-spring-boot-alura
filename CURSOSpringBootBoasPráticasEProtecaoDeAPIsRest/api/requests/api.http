@@ -1,6 +1,12 @@
 @baseUrl = http://localhost:8080
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgVm9sbC5tZWQiLCJzdWIiOiJsdWNhcy5mZXJyZWlyYUB2b2xsLm1lZCIsImV4cCI6MTc2NjQyMzMwOX0.sOk15CnVeKqHUPJOMAHexZcpXunRUvOeLCKIJKazU7E
 
-### efetuar login
+
+### =========================
+### AUTENTICAÇÃO
+### =========================
+
+### Efetuar login (NÃO usa token)
 POST {{baseUrl}}/login
 Content-Type: application/json
 
@@ -9,23 +15,39 @@ Content-Type: application/json
   "senha": "123456"
 }
 
+
+### =========================
+### TESTES BÁSICOS
+### =========================
+
 ### Teste do endpoint /hello
 GET {{baseUrl}}/hello
+Authorization: Bearer {{token}}
 
-### 1. Listar médicos (Básico)
+
+### =========================
+### MÉDICOS
+### =========================
+
+### 1. Listar médicos (básico)
 GET {{baseUrl}}/medicos
-  
+Authorization: Bearer {{token}}
+
 ### 2. Listar médicos com paginação
 GET {{baseUrl}}/medicos?page=0&size=3
+Authorization: Bearer {{token}}
 
 ### 3. Listar médicos ordenados por nome
 GET {{baseUrl}}/medicos?sort=nome
+Authorization: Bearer {{token}}
 
 ### 4. Combinar paginação + ordenação
 GET {{baseUrl}}/medicos?page=0&size=3&sort=nome
+Authorization: Bearer {{token}}
 
-### Teste do endpoint para cadastrar um medico
+### Cadastrar médico
 POST {{baseUrl}}/medicos
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
@@ -45,8 +67,9 @@ Content-Type: application/json
   }
 }
 
-### Teste do endpoint para atualizar um medico
+### Atualizar médico
 PUT {{baseUrl}}/medicos
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
@@ -54,27 +77,33 @@ Content-Type: application/json
   "nome": "Rodrigo Ferreira",
   "telefone": "6598455656",
   "endereco": {
-    "logradouro": "rua 1",
-    "bairro": "bairro",
+    "logradouro": "Rua 1",
+    "bairro": "Bairro",
     "cep": "12345678",
-    "cidade": "Brasilia",
+    "cidade": "Brasília",
     "uf": "DF",
     "numero": "1",
-    "complemento": "complemento"
+    "complemento": "Complemento"
   }
 }
 
-### Teste do endpoint para deletar um médico
+### Deletar médico
 DELETE {{baseUrl}}/medicos/31
+Authorization: Bearer {{token}}
 
-
-### Teste do endpoint para detalhar um médico
+### Detalhar médico
 GET {{baseUrl}}/medicos/324
+Authorization: Bearer {{token}}
 
-### Teste do endpoint para cadastrar pacientes
+
+### =========================
+### PACIENTES
+### =========================
+
+### Cadastrar paciente
 POST {{baseUrl}}/pacientes
-Content-Type: application/
-json
+Authorization: Bearer {{token}}
+Content-Type: application/json
 
 {
   "nome": "Andrei Martins",
@@ -92,20 +121,25 @@ json
   }
 }
 
-### 1. Listar pacientes (Básico)
+### 1. Listar pacientes (básico)
 GET {{baseUrl}}/pacientes
+Authorization: Bearer {{token}}
 
 ### 2. Listar pacientes com paginação
 GET {{baseUrl}}/pacientes?page=0&size=3
+Authorization: Bearer {{token}}
 
 ### 3. Listar pacientes ordenados por nome
 GET {{baseUrl}}/pacientes?sort=nome
+Authorization: Bearer {{token}}
 
 ### 4. Combinar paginação + ordenação
 GET {{baseUrl}}/pacientes?page=0&size=3&sort=nome
+Authorization: Bearer {{token}}
 
-### Teste do endpoint para atualizar um paciente
+### Atualizar paciente
 PUT {{baseUrl}}/pacientes
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
@@ -125,8 +159,10 @@ Content-Type: application/json
   }
 }
 
-### Teste do endpoint para deletar um paciente
+### Deletar paciente
 DELETE {{baseUrl}}/pacientes/1
+Authorization: Bearer {{token}}
 
-### Teste do endpoint para detalhar um paciente
+### Detalhar paciente
 GET {{baseUrl}}/pacientes/3
+Authorization: Bearer {{token}}
