@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:8080
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgVm9sbC5tZWQiLCJzdWIiOiJsdWNhcy5mZXJyZWlyYUB2b2xsLm1lZCIsImV4cCI6MTc2NjQyMzMwOX0.sOk15CnVeKqHUPJOMAHexZcpXunRUvOeLCKIJKazU7E
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgVm9sbC5tZWQiLCJzdWIiOiJsdWNhcy5mZXJyZWlyYUB2b2xsLm1lZCIsImV4cCI6MTc2NjQzOTQ4NX0.bBOEB9lYylqh14-X_hFhl5BbNBtNswAV7KLsykSl4Lk
 
 
 ### =========================
