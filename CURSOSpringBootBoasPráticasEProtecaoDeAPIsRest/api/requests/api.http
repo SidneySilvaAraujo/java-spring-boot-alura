@@ -1,0 +1,168 @@
+@baseUrl = http://localhost:8080
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgVm9sbC5tZWQiLCJzdWIiOiJsdWNhcy5mZXJyZWlyYUB2b2xsLm1lZCIsImV4cCI6MTc2NjQzOTQ4NX0.bBOEB9lYylqh14-X_hFhl5BbNBtNswAV7KLsykSl4Lk
+
+
+### =========================
+### AUTENTICAÇÃO
+### =========================
+
+### Efetuar login (NÃO usa token)
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "login": "lucas.ferreira@voll.med",
+  "senha": "123456"
+}
+
+
+### =========================
+### TESTES BÁSICOS
+### =========================
+
+### Teste do endpoint /hello
+GET {{baseUrl}}/hello
+Authorization: Bearer {{token}}
+
+
+### =========================
+### MÉDICOS
+### =========================
+
+### 1. Listar médicos (básico)
+GET {{baseUrl}}/medicos
+Authorization: Bearer {{token}}
+
+### 2. Listar médicos com paginação
+GET {{baseUrl}}/medicos?page=0&size=3
+Authorization: Bearer {{token}}
+
+### 3. Listar médicos ordenados por nome
+GET {{baseUrl}}/medicos?sort=nome
+Authorization: Bearer {{token}}
+
+### 4. Combinar paginação + ordenação
+GET {{baseUrl}}/medicos?page=0&size=3&sort=nome
+Authorization: Bearer {{token}}
+
+### Cadastrar médico
+POST {{baseUrl}}/medicos
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nome": "Bruno Nogueira Lopes",
+  "email": "bruno.lopes@voll.med",
+  "crm": "991122",
+  "telefone": "71999881234",
+  "especialidade": "ORTOPEDIA",
+  "endereco": {
+    "logradouro": "Av. Sete de Setembro",
+    "bairro": "Campo Grande",
+    "cep": "40080000",
+    "cidade": "Salvador",
+    "uf": "BA",
+    "numero": "45",
+    "complemento": "Consultório 2"
+  }
+}
+
+### Atualizar médico
+PUT {{baseUrl}}/medicos
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nome": "Rodrigo Ferreira",
+  "telefone": "6598455656",
+  "endereco": {
+    "logradouro": "Rua 1",
+    "bairro": "Bairro",
+    "cep": "12345678",
+    "cidade": "Brasília",
+    "uf": "DF",
+    "numero": "1",
+    "complemento": "Complemento"
+  }
+}
+
+### Deletar médico
+DELETE {{baseUrl}}/medicos/31
+Authorization: Bearer {{token}}
+
+### Detalhar médico
+GET {{baseUrl}}/medicos/324
+Authorization: Bearer {{token}}
+
+
+### =========================
+### PACIENTES
+### =========================
+
+### Cadastrar paciente
+POST {{baseUrl}}/pacientes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nome": "Andrei Martins",
+  "email": "andrei.martins@example.com",
+  "cpf": "357.824.381-17",
+  "telefone": "(67) 97432-1423",
+  "endereco": {
+    "logradouro": "Avenida Brasil",
+    "bairro": "Dom Bosco",
+    "cep": "79104320",
+    "cidade": "Campo Grande",
+    "uf": "MS",
+    "numero": "1540",
+    "complemento": null
+  }
+}
+
+### 1. Listar pacientes (básico)
+GET {{baseUrl}}/pacientes
+Authorization: Bearer {{token}}
+
+### 2. Listar pacientes com paginação
+GET {{baseUrl}}/pacientes?page=0&size=3
+Authorization: Bearer {{token}}
+
+### 3. Listar pacientes ordenados por nome
+GET {{baseUrl}}/pacientes?sort=nome
+Authorization: Bearer {{token}}
+
+### 4. Combinar paginação + ordenação
+GET {{baseUrl}}/pacientes?page=0&size=3&sort=nome
+Authorization: Bearer {{token}}
+
+### Atualizar paciente
+PUT {{baseUrl}}/pacientes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nome": "Mariana Duarte Leal",
+  "email": "mariana.leal@example.com",
+  "cpf": "247.915.680-42",
+  "telefone": "(48) 99812-4402",
+  "endereco": {
+    "logradouro": "Rua das Acácias",
+    "bairro": "Centro",
+    "cep": "88010001",
+    "cidade": "Florianópolis",
+    "uf": "SC",
+    "numero": "112",
+    "complemento": "Apto 303"
+  }
+}
+
+### Deletar paciente
+DELETE {{baseUrl}}/pacientes/1
+Authorization: Bearer {{token}}
+
+### Detalhar paciente
+GET {{baseUrl}}/pacientes/3
+Authorization: Bearer {{token}}
