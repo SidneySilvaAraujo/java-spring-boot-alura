@@ -1,5 +1,6 @@
 package med.voll.api.domain.consulta;
 
+import jakarta.validation.Valid;
 import med.voll.api.domain.ValidacaoException;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.medico.MedicoRepository;
@@ -27,7 +28,7 @@ public class AgendaDeConsulta {
 
         var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var medico = escolherMedico(dados);
-        var consulta = new Consulta(null, medico, paciente, dados.data());
+        var consulta = new Consulta(null, medico, paciente, dados.data(), null);
         consultaRepository.save(consulta);
     }
 
@@ -52,6 +53,15 @@ public class AgendaDeConsulta {
                                 "não existe médicos disponíveis nessa data!"
                         )
                 );
+    }
+
+    public void cancelar(@Valid DadosCancelamentoConsulta dados) {
+        if (!consultaRepository.existsById(dados.idConsulta())) {
+            throw new ValidacaoException("Id da consulta informado não existe!");
+        }
+
+        var consulta = consultaRepository.getReferenceById(dados.idConsulta());
+        consulta.cancelar(dados.motivo());
     }
 }
 
